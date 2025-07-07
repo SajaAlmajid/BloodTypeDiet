@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blood Type Diet Recommendation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            overflow: auto;
+            position: relative;
+            background: #fff5f7;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, #ff4b2b, #ff416c, #d6336c, #ff4b2b);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            filter: blur(100px);
+            z-index: -1;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            max-width: 95%;
+            margin: 30px;
+            width: 500px;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            display: block;
+            margin: 15px 0 5px;
+        }
+
+        select {
+            padding: 10px;
+            width: 80%;
+            border: 2px solid #ff4b2b;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #ff4b2b, #ff416c);
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 65, 108, 0.5);
+        }
+
+        .blood-table {
+            display: none;
+            margin-top: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            color: #333;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        h2 {
+            color: #d6336c;
+        }
+
+        ul {
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            select {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Blood Type Diet Recommendation</h1>
+
+    <label for="bloodType">Select your Blood Type:</label>
+    <select id="bloodType">
+        <option value="">-- Select --</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="AB">AB</option>
+        <option value="O">O</option>
+    </select><br><br>
+
+    <button onclick="showTable()">Get Recommendation</button>
+
+    <!-- Tables for each blood type -->
+    <div id="tableA" class="blood-table">
+        <h2>Blood Type A - Recommended Diet</h2>
+        <p><strong>Beneficial Foods:</strong></p>
+        <ul>
+            <li>Soy products</li>
+            <li>Salmon, sardines</li>
+            <li>Flax & olive oils</li>
+            <li>Broccoli, kale, collards</li>
+            <li>Avocados</li>
+            <li>Berries, green tea</li>
+        </ul>
+        <p><strong>Foods to Avoid:</strong></p>
+        <ul>
+            <li>Red meat</li>
+            <li>Full-fat dairy</li>
+            <li>Potatoes</li>
+            <li>Peppers, tomatoes</li>
+            <li>Oranges</li>
+            <li>Processed sugar</li>
+        </ul>
+    </div>
+
+    <div id="tableB" class="blood-table">
+        <h2>Blood Type B - Recommended Diet</h2>
+        <p><strong>Beneficial Foods:</strong></p>
+        <ul>
+            <li>Lamb, goat, mutton</li>
+            <li>Cold-water fish</li>
+            <li>Yogurt & kefir</li>
+            <li>Flax & olive oils</li>
+            <li>Garlic & onion</li>
+            <li>Broccoli, kale, turmeric</li>
+            <li>Green tea</li>
+        </ul>
+        <p><strong>Foods to Avoid:</strong></p>
+        <ul>
+            <li>Chicken & shellfish</li>
+            <li>Corn & soy products</li>
+            <li>Peanuts, sesame oils</li>
+            <li>Lentils</li>
+            <li>Processed sugar</li>
+        </ul>
+    </div>
+
+    <div id="tableAB" class="blood-table">
+        <h2>Blood Type AB - Recommended Diet</h2>
+        <p><strong>Beneficial Foods:</strong></p>
+        <ul>
+            <li>Soy products</li>
+            <li>Salmon, sardines</li>
+            <li>Yogurt & kefir</li>
+            <li>Broccoli, cauliflower, tomatoes</li>
+            <li>Garlic & onion</li>
+            <li>Lemon, turmeric</li>
+            <li>Green tea</li>
+        </ul>
+        <p><strong>Foods to Avoid:</strong></p>
+        <ul>
+            <li>Chicken</li>
+            <li>Corn products</li>
+            <li>Buckwheat</li>
+            <li>Sesame, sunflower oils</li>
+            <li>Bananas, kidney beans</li>
+            <li>Coffee</li>
+        </ul>
+    </div>
+
+    <div id="tableO" class="blood-table">
+        <h2>Blood Type O - Recommended Diet</h2>
+        <p><strong>Beneficial Foods:</strong></p>
+        <ul>
+            <li>Lean, organic, grass-fed meat</li>
+            <li>Cold-water fish</li>
+            <li>Rice & olive oils</li>
+            <li>Garlic & onion</li>
+            <li>Spinach, kale, collards</li>
+            <li>Pineapple, berries</li>
+            <li>Spices like ginger & turmeric</li>
+        </ul>
+        <p><strong>Foods to Avoid:</strong></p>
+        <ul>
+            <li>Wheat & wheat products</li>
+            <li>Corn & soy products</li>
+            <li>Cow’s dairy products</li>
+            <li>Potatoes</li>
+            <li>Oranges, kiwis</li>
+            <li>Coffee (even decaf)</li>
+            <li>Processed sugar</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    function showTable() {
+        const bloodType = document.getElementById('bloodType').value;
+        const tables = ['tableA', 'tableB', 'tableAB', 'tableO'];
+
+        tables.forEach(id => document.getElementById(id).style.display = 'none');
+
+        if (bloodType === "A") {
+            document.getElementById('tableA').style.display = 'block';
+        } else if (bloodType === "B") {
+            document.getElementById('tableB').style.display = 'block';
+        } else if (bloodType === "AB") {
+            document.getElementById('tableAB').style.display = 'block';
+        } else if (bloodType === "O") {
+            document.getElementById('tableO').style.display = 'block';
+        } else {
+            alert("⚠️ Please select a valid blood type.");
+        }
+    }
+</script>
+
+</body>
+</html>
